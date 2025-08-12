@@ -1,0 +1,20 @@
+.portfolio {
+    padding-top: 120px; /* Offset for fixed navbar */
+  }
+  
+  .portfolio-grid {
+    columns: 3 320px;
+    column-gap: 1.5rem;
+  }
+  
+  .photo-card {
+    margin-bottom: 1.5rem;
+    break-inside: avoid;
+  }
+  
+  .photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-lg);
+  }

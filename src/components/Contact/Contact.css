@@ -1,0 +1,35 @@
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: var(--surface);
+    color: var(--text-primary);
+    transition: border-color 0.3s ease;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  .contact-form button {
+    align-self: flex-start;
+  }
+  
+  .status-message {
+    margin-top: 1rem;
+    text-align: center;
+  }
