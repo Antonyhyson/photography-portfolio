@@ -1,20 +1,136 @@
+/* src/components/Portfolio/Portfolio.css */
+
 .portfolio {
-    padding-top: 120px; /* Offset for fixed navbar */
-  }
-  
-  .portfolio-grid {
-    columns: 3 320px;
-    column-gap: 1.5rem;
-  }
-  
-  .photo-card {
-    margin-bottom: 1.5rem;
-    break-inside: avoid;
-  }
-  
-  .photo-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: var(--radius-lg);
-  }
+  padding-top: 120px;
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3xl);
+  padding: 0 1rem;
+}
+
+.layout-switcher {
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--surface);
+  padding: 0.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.layout-switcher button {
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.layout-switcher button:hover {
+  color: var(--text-primary);
+  background-color: #e9e9e9;
+}
+
+.layout-switcher button.active {
+  color: var(--text-primary);
+  background-color: #e0e0e0;
+}
+
+/* --- Grid Layout (Masonry) --- */
+.portfolio-grid {
+  columns: 3 320px; /* Responsive columns */
+  column-gap: 1.5rem;
+}
+
+.photo-card-grid {
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+}
+
+.photo-card-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+/* --- Slides Layout (Full-Width Slider) --- */
+.portfolio-slides {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Full viewport height */
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.portfolio-slides img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+.slide-nav:hover {
+  background-color: white;
+}
+
+.slide-nav.prev {
+  left: 1rem;
+}
+
+.slide-nav.next {
+  right: 1rem;
+}
+
+/* --- Cards Layout (Single Column) --- */
+.portfolio-cards {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.photo-card-single {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card-single img {
+  width: 100%;
+  display: block;
+}
+
+.card-caption {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background-color: var(--surface);
+  text-align: center;
+}
