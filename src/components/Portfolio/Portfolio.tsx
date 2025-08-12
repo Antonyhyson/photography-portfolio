@@ -1,3 +1,5 @@
+// src/components/Portfolio/Portfolio.tsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
@@ -15,19 +17,21 @@ const Portfolio: React.FC = () => {
   const [photos, setPhotos] = useState<UnsplashPhoto[]>([]);
   
   // --- IMPORTANT ---
-  // Replace with your Unsplash username and Access Key
-  const UNSPLASH_USERNAME = 'Antony Hyson Seltran';
+  // 1. Replace with the Collection ID you copied from the Unsplash URL.
+  const UNSPLASH_COLLECTION_ID = 'F4Qu2ZHdmyc'; 
+  
+  // 2. Replace with your Unsplash Access Key.
   const UNSPLASH_ACCESS_KEY = 'X65u9D0iRGgWD8QDsyJXfeTlbySJZq3eJ-OiZC64dIE';
 
   useEffect(() => {
-    if (!UNSPLASH_USERNAME || !UNSPLASH_ACCESS_KEY) return;
+    if (!UNSPLASH_COLLECTION_ID || !UNSPLASH_ACCESS_KEY) return;
 
-    const fetchPhotos = async () => {
+    const fetchCollectionPhotos = async () => {
       try {
         const response = await axios.get(
-          `https://api.unsplash.com/users/${UNSPLASH_USERNAME}/photos`,
+          `https://api.unsplash.com/collections/${UNSPLASH_COLLECTION_ID}/photos`,
           {
-            params: { per_page: 30 },
+            params: { per_page: 30 }, // You can show up to 30 photos
             headers: {
               Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
             },
@@ -35,12 +39,12 @@ const Portfolio: React.FC = () => {
         );
         setPhotos(response.data);
       } catch (error) {
-        console.error('Error fetching photos from Unsplash:', error);
+        console.error('Error fetching collection photos from Unsplash:', error);
       }
     };
 
-    fetchPhotos();
-  }, [UNSPLASH_USERNAME, UNSPLASH_ACCESS_KEY]);
+    fetchCollectionPhotos();
+  }, [UNSPLASH_COLLECTION_ID, UNSPLASH_ACCESS_KEY]);
 
   const containerVariants = {
     hidden: {},
@@ -57,6 +61,9 @@ const Portfolio: React.FC = () => {
   return (
     <section id="portfolio" className="portfolio section">
       <div className="container">
+        <div className="section-header">
+          <h2 className="section-title">Portfolio</h2>
+        </div>
         <motion.div
           className="portfolio-grid"
           variants={containerVariants}
