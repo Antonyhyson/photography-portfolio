@@ -1,0 +1,131 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-title {
+  margin-bottom: 1.75rem;
+}
+
+.about-title-accent {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.about-body {
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+  max-width: 480px;
+}
+
+.about-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1;
+  border-radius: 1.25rem;
+  background: linear-gradient(150deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--border);
+  transition: transform 0.15s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-card-ring {
+  position: absolute;
+  inset: 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0.35;
+  animation: aboutRingSpin 24s linear infinite;
+}
+
+.about-card-ring::before,
+.about-card-ring::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.about-card-ring::before { inset: 12%; }
+.about-card-ring::after { inset: 26%; opacity: 0.6; }
+
+@keyframes aboutRingSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.about-card-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+  padding: 2rem;
+}
+
+.about-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.about-card-value {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  margin-bottom: 1.75rem;
+}
+
+.about-stats {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.about-stat-value {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.about-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  max-width: 70px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  .about-body { margin-left: auto; margin-right: auto; }
+  .about-card { max-width: 320px; }
+}

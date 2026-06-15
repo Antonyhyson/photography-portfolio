@@ -1,0 +1,18 @@
+.aperture-blade--top,
+.aperture-blade--bottom {
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--background);
+  position: absolute;
+}
+
+.aperture-blade--top {
+  top: 0;
+  transform-origin: top;
+}
+
+.aperture-blade--bottom {
+  bottom: 0;
+  transform-origin: bottom;
+}
